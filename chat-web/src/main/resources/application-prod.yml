@@ -1,0 +1,4 @@
+default:
+  timeout: 3600
+qrcode:
+  timeout: 3600

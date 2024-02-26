@@ -1,0 +1,26 @@
+<configuration>
+    <property name="LOG_HOME" value="${LOG_PATH}"/>
+    <!--    日志输出到控制台-->
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <!-- 日志输出到文件 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/chat.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_HOME}/app.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <maxHistory>30</maxHistory> <!-- 设置保留的历史日志文件天数 -->
+        </rollingPolicy>
+        <encoder>
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{15} - %msg%n%ex{full}</Pattern>
+        </encoder>
+    </appender>
+
+
+
+    <!-- 将 ROOT 日志记录器设置为输出到 CONSOLE 和 FILE 这两个 appender -->
+    <root level="info">
+        <appender-ref ref="FILE"/>
+    </root>
+
+
+</configuration>
