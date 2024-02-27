@@ -14,7 +14,7 @@
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>archetype</name>
-    <description>chat-netty</description>
+    <description>archetype</description>
 
     <properties>
         <caffeine.version>3.0.5</caffeine.version>
@@ -55,10 +55,10 @@
         </dependency>
 
 
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-aop</artifactId>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-aop</artifactId>-->
+        <!--        </dependency>-->
 
     </dependencies>
 
@@ -108,34 +108,29 @@
 
             <dependency>
                 <groupId>com.lixin</groupId>
-                <artifactId>chat-web</artifactId>
+                <artifactId>archetype-web</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.lixin</groupId>
-                <artifactId>chat-main</artifactId>
+                <artifactId>archetype-main</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.lixin</groupId>
-                <artifactId>chat-utils</artifactId>
+                <artifactId>archetype-utils</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.lixin</groupId>
-                <artifactId>chat-dal</artifactId>
+                <artifactId>archetype-dal</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>${pagehelper.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
@@ -156,16 +151,25 @@
                 <version>${caffeine.version}</version>
             </dependency>
         </dependencies>
-
-
     </dependencyManagement>
 
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-archetype-plugin</artifactId>
+                <version>3.2.1</version>
+            </plugin>
+        </plugins>
+    </build>
+
+
     <modules>
-        <module>chat-web</module>
-        <module>chat-dal</module>
-        <module>chat-utils</module>
-        <module>chat-main</module>
+        <module>archetype-web</module>
+        <module>archetype-dal</module>
+        <module>archetype-utils</module>
+        <module>archetype-main</module>
     </modules>
 
 </project>
