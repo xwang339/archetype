@@ -88,9 +88,3 @@ Define value for property 'package' #{package}
 ### 生成后的效果
 ![img_3.png](./img/img_3.png)
 
-
-
-
-
-这样你就可以一次性获取所有内容啦！
-
