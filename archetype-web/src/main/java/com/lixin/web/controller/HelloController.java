@@ -1,7 +1,7 @@
 package com.lixin.web.controller;
 
 
-import com.lixin.main.Manager.HelloManager;
+import com.lixin.main.manager.HelloManager;
 import com.lixin.dal.model.Result;
 import com.lixin.main.redis.RedisUtils;
 import com.lixin.main.redis.StringRedisUtil;

@@ -1,4 +1,4 @@
-package com.lixin.main.Manager;
+package com.lixin.main.manager;
 
 
 public interface HelloManager {

@@ -1,6 +1,6 @@
-package com.lixin.main.Manager.impl;
+package com.lixin.main.manager.impl;
 
-import com.lixin.main.Manager.HelloManager;
+import com.lixin.main.manager.HelloManager;
 import org.springframework.stereotype.Component;
 
 @Component

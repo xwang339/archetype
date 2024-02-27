@@ -9,7 +9,10 @@ Maven 脚手架是一个用于快速创建项目结构的工具。它提供了�
 
 该脚手架基于一种分层架构设计，旨在帮助开发者快速构建可维护、可扩展的应用程序。它提供了以下几个核心功能：
 
-- **项目分层结构**: 包括数据访问层（DAO）、业务逻辑层（Service）、控制器层（Controller）等，使项目结构更清晰明了。
+- **项目分层结构**: 
+  - 数据访问层（dal）mybatis相关配置 以及代码生成器
+  - 业务逻辑层（main）manager(通用业务类) service(实际业务类)
+  - 控制器层（web） 负责与web交互
 - **集成常用库和框架**: 预先集成了常用的库和框架，简化了项目搭建过程。
 - **快速配置**: 提供了一些默认的配置，同时也允许根据项目需求进行自定义配置，满足不同项目的需求。
 
@@ -51,6 +54,7 @@ Maven 脚手架是一个用于快速创建项目结构的工具。它提供了�
 
 ```bash
 mvn -s /#{mavenPath}/conf/settings.xml clean archetype:create-from-project -Darchetype.properties=./archetype.properties
+#mvn -s ${MAVEN_HOME}/conf/settings.xml clean archetype:create-from-project -Darchetype.properties=./archetype.properties
 ```
 
 ### 进入生成目录
