@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <!-- 数据库连接配置 -->
+    <context id="context" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <!-- 是否生成注释，默认为true -->
+            <property name="suppressAllComments" value="false"/>
+            <!-- 是否去除自动生成的注释，默认为false -->
+            <property name="suppressDate" value="false"/>
+            <!-- 是否添加数据库表中的注释，默认为false -->
+            <property name="addRemarkComments" value="true"/>
+<!--            <property name="dateFormat" value="yyyy-MM-dd HH:mm:ss" />-->
+<!--            <property name="author" value="Croky.Zheng" />-->
+        </commentGenerator>
+
+<!--
+		<commentGenerator>
+			<property name="suppressAllComments" value="false" />
+			<property name="suppressDate" value="false" />
+			<property name="addRemarkComments" value="false" />
+			<property name="dateFormat" value="yyyy-MM-dd HH:mm:ss" />
+			<property name="author" value="Croky.Zheng" />
+		</commentGenerator>-->
+        <!-- 数据库连接信息 -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/chat?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8"
+                        userId="root"
+                        password="10201224w">
+<!--            mysql 8以上的版本如果不配置这个信息就会生成一堆数据库配置信息-->
+            <property name="nullCatalogMeansCurrent" value="true" />
+        </jdbcConnection>
+
+<!--        &lt;!&ndash; 实体类、Mapper、XML 文件生成的位置 &ndash;&gt;-->
+<!--        <javaModelGenerator targetPackage="com.lixin.dal.model"-->
+<!--                            targetProject="src/main/java">-->
+<!--            <property name="enableSubPackages" value="true"/>-->
+<!--        </javaModelGenerator>-->
+
+<!--        <sqlMapGenerator targetPackage="com.lixin.dal.mapper"-->
+<!--                         targetProject="src/main/resources">-->
+<!--            <property name="enableSubPackages" value="true"/>-->
+<!--        </sqlMapGenerator>-->
+
+<!--        <javaClientGenerator targetPackage="com.lixin.dal.mapper"-->
+<!--                             targetProject="src/main/java"-->
+<!--                             type="XMLMAPPER">-->
+<!--            <property name="enableSubPackages" value="true"/>-->
+<!--        </javaClientGenerator>-->
+
+<!--        <javaTypeResolver >-->
+<!--            <property name="forceBigDecimals" value="false" />-->
+<!--        </javaTypeResolver>-->
+
+        <!-- 数据表对应的model层  -->
+        <!-- targetProject为文件生成的目录  targetPackage 为生成项目结构目录 -->
+        <javaModelGenerator targetPackage="com.tools.generator.domain" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <!-- 此属性用于选择MyBatis生成器是否添加代码以从数据库返回的字符字段中修剪空白。如果数据库将数据存储在CHAR字段而不是VARCHAR字段中，这将非常有用。如果为true，MyBatis生成器将插入代码来修剪字符字段。可以使用或元素中的trimStrings属性重写。
+默认值为false。 -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- sql mapper 映射配置文件 -->
+        <sqlMapGenerator targetPackage="com.tools.generator.mapper"  targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!-- mybatis3中的mapper接口 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.tools.generator.dao"  targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table tableName="%">
+            <!-- 参考 javaModelGenerator 的 constructorBased属性 -->
+            <property name="constructorBased" value="false" />
+
+            <!-- 默认为false,如果设置为true,在生成的SQL中,table名字不会加上catalog或schema; -->
+            <property name="ignoreQualifiersAtRuntime" value="false" />
+
+            <!-- 参考 javaModelGenerator 的 immutable 属性 -->
+            <property name="immutable" value="false" />
+
+            <!-- 指定是否只生成domain类,如果设置为true,只生成domain类,如果还配置了sqlMapGenerator,那么在mapper
+                XML文件中，只生成resultMap元素 -->
+            <property name="modelOnly" value="false" />
+
+
+            <!-- 注意,该属性只针对MyBatis3Simple有用; 如果选择的runtime是MyBatis3Simple,那么会生成一个SelectAll方法,如果指定了selectAllOrderByClause,那么会在该SQL中添加指定的这个order条件;
+                <property name="selectAllOrderByClause" value="age desc,username asc"/> -->
+
+            <!-- 如果设置为true,生成的model类会直接使用column本身的名字,而不会再使用驼峰命名方法,比如BORN_DATE,生成的属性名字就是BORN_DATE,而不会是bornDate -->
+            <property name="useActualColumnNames" value="false" />
+            <!-- column=主键列名,sql=Cloudscape | DB2 | DB2_MF | Derby | HSQLDB | Informix
+                | MySql | SqlServer | SYBASE | JDBC -->
+            <generatedKey identity="true" column="id"
+                          sqlStatement="Mysql" />
+            <!-- 查找列名中的字符串,使用规则替换,与domainObjectRenamingRule不能共存，如果使用了columnOverride元素,该属性无效 -->
+            <!--
+            <columnRenamingRule searchString="^ucs_" replaceString=""/> -->
+            <domainObjectRenamingRule searchString="^Acl" replaceString=""/>
+
+            <!-- 讲表中列名生成指定的java字段名 -->
+            <columnOverride column="gmt_create" javaType="java.util.Date" property="CreateDateTime" jdbcType="TIMESTAMP" />
+            <columnOverride column="gmt_modify" javaType="java.util.Date" property="LastModifyDateTime" jdbcType="TIMESTAMP" />
+            <!-- 忽略某列,可以有多个ignoreColumn元素 -->
+            <ignoreColumn column="croky_unknow_nothing" delimitedColumnName=""/>
+
+        </table>
+    </context>
+</generatorConfiguration>

@@ -26,7 +26,7 @@ public class HelloController {
 
     @RequestMapping("/redisTestGet")
     public Result<String> redisTestGet() {
-        return Result.success(RedisUtils.convert(stringRedisUtil.get("test")));
+        return Result.success((stringRedisUtil.get("test")));
     }
 
 

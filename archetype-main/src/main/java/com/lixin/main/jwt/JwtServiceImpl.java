@@ -5,20 +5,7 @@ import com.lixin.utils.exception.AuthException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * Description:
- * Copyright:   Copyright (c)2023
- * Company:     sci
- *
- * @author: 张李鑫
- * @version: 1.0
- * Create at:   2023-07-30 18:49:31
- * <p>
- * Modification History:
- * Date         Author      Version     Description
- * ------------------------------------------------------------------
- * 2023-07-30     张李鑫                     1.0         1.0 Version
- */
+
 @Component
 public class JwtServiceImpl implements JwtService {
 

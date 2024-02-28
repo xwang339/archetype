@@ -1,0 +1,13 @@
+<!--<plugin>-->
+<!--    <name>Code Generator Plugin</name>-->
+<!--    <description>A Maven plugin for generating code</description>-->
+<!--    <goalPrefix>codegen</goalPrefix>-->
+<!--    <mojos>-->
+<!--        <mojo>-->
+<!--            <goal>generate</goal>-->
+<!--            <description>Generate code using MyBatis Generator</description>-->
+<!--            <requiresProject>true</requiresProject>-->
+<!--            <threadSafe>true</threadSafe>-->
+<!--        </mojo>-->
+<!--    </mojos>-->
+<!--</plugin>-->

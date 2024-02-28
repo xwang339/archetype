@@ -160,6 +160,7 @@
         <module>archetype-dal</module>
         <module>archetype-utils</module>
         <module>archetype-main</module>
+<!--        <module>code-generator-plugin</module>-->
     </modules>
 
 </project>

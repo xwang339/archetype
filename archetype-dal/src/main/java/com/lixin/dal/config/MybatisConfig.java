@@ -17,20 +17,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-/**
- * Description:
- * Copyright:   Copyright (c)2023
- * Company:     sci
- *
- * @author: 张李鑫
- * @version: 1.0
- * Create at:   2023-07-29 00:20:17
- * <p>
- * Modification History:
- * Date         Author      Version     Description
- * ------------------------------------------------------------------
- * 2023-07-29     张李鑫                     1.0         1.0 Version
- */
+
 @Configuration
 public class MybatisConfig {
     private static final Logger log = LoggerFactory.getLogger(MybatisConfig.class);

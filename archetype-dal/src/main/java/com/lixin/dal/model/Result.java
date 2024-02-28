@@ -2,20 +2,7 @@ package com.lixin.dal.model;
 
 import java.io.Serializable;
 
-/**
- * Description:
- * Copyright:   Copyright (c)2024
- * Company:
- *
- * @author: 张李鑫
- * @version: 1.0
- * Create at:   2024-02-26 15:03:22
- * <p>
- * Modification History:
- * Date         Author      Version     Description
- * ------------------------------------------------------------------
- * 2024-02-26     张李鑫                     1.0         1.0 Version
- */
+
 public class Result<T> implements Serializable {
     private static final long serialVersionUID = 3136093880967040057L;
     protected T model;

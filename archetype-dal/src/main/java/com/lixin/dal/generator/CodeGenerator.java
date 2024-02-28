@@ -7,20 +7,7 @@ import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
-/**
- * Description: 代码生成器
- * Copyright:   Copyright (c)2023
- * Company:     sci
- *
- * @author: 张李鑫
- * @version: 1.0
- * Create at:   2023-07-28 18:29:44
- * <p>
- * Modification History:
- * Date         Author      Version     Description
- * ------------------------------------------------------------------
- * 2023-07-28     张李鑫                     1.0         1.0 Version
- */
+
 public class CodeGenerator {
     public static void main(String[] args) {
         // 代码生成器

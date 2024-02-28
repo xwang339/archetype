@@ -6,20 +6,6 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Description:
- * Copyright:   Copyright (c)2023
- * Company:     sci
- *
- * @author: 张李鑫
- * @version: 1.0
- * Create at:   2023-07-30 21:40:09
- * <p>
- * Modification History:
- * Date         Author      Version     Description
- * ------------------------------------------------------------------
- * 2023-07-30     张李鑫                     1.0         1.0 Version
- */
 @Component
 public class StringRedisUtil extends RedisUtils{
 

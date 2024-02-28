@@ -28,25 +28,6 @@ public abstract class RedisUtils {
     @Value("${spring.redis.default.timeout}")
     public long DEFAULT_TIMEOUT;
 
-
-    @SuppressWarnings("unchecked")
-    public static <T> T convert(Object obj) {
-        if (obj == null) {
-            return null;
-        }
-
-        if (obj instanceof String) {
-            return (T) obj.toString();
-        } else if (obj instanceof Integer) {
-            return (T) Integer.valueOf(String.valueOf(obj));
-        } else {
-            // Handle other types if needed
-            return null;
-        }
-    }
-
-
-
     public static <T> T toBeanOrNull(Object json, Class<T> tClass) {
         return json == null ? null : JsonUtils.toObject(json.toString(), tClass);
     }

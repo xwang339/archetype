@@ -8,14 +8,8 @@ import com.fasterxml.jackson.databind.*;
 
 import java.util.List;
 
-/**
- * 
- * @JsonProperty("NickName")
- * @JsonIgnore
- * @JsonFormat(pattern = "yyyy-MM-DD")
- * @author Croky.Zheng
- * 2017年3月22日
- */
+
+
 public final class JsonUtils {
 	private JsonUtils(){}
 	public final static ObjectMapper MAPPER = newMapper();

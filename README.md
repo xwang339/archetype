@@ -53,8 +53,7 @@ Maven 脚手架是一个用于快速创建项目结构的工具。它提供了�
 在执行 Maven 命令时，需要指定 Maven 的配置文件，否则 Maven 会查找系统中的 `settings.xml` 文件。以下是指定配置文件 `archetype.properties` 的命令：
 
 ```bash
-mvn -s /#{mavenPath}/conf/settings.xml clean archetype:create-from-project -Darchetype.properties=./archetype.properties
-#mvn -s ${MAVEN_HOME}/conf/settings.xml clean archetype:create-from-project -Darchetype.properties=./archetype.properties
+mvn -s ${MAVEN_HOME}/conf/settings.xml clean archetype:create-from-project -Darchetype.properties=./archetype.properties
 ```
 
 ### 进入生成目录
@@ -85,7 +84,7 @@ Define value for property 'package' #{package}
  Y: :  ##回车yes
 ```
 
-### 当前生成图的生成流程
+### 当前生成图的
 ![img_4.png](./img/img_4.png)
 
 
