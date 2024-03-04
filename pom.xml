@@ -12,13 +12,12 @@
     <groupId>com.lixin</groupId>
     <artifactId>archetype</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>archetype</name>
     <description>archetype</description>
 
     <properties>
         <caffeine.version>3.0.5</caffeine.version>
-        <project.version>0.0.1-SNAPSHOT</project.version>
         <java.version>17</java.version>
         <springboot.version>2.6.3</springboot.version>
         <hutool.version>5.8.18</hutool.version>
@@ -53,13 +52,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
-
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.boot</groupId>-->
-        <!--            <artifactId>spring-boot-starter-aop</artifactId>-->
-        <!--        </dependency>-->
-
     </dependencies>
 
     <dependencyManagement>
@@ -98,18 +90,6 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-generator</artifactId>
                 <version>${mybatis.plus.generator.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>io.netty</groupId>
-                <artifactId>netty-all</artifactId>
-                <version>${netty.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.lixin</groupId>
-                <artifactId>archetype-web</artifactId>
-                <version>${project.version}</version>
             </dependency>
 
             <dependency>
@@ -154,13 +134,11 @@
     </dependencyManagement>
 
 
-
     <modules>
         <module>archetype-web</module>
         <module>archetype-dal</module>
         <module>archetype-utils</module>
         <module>archetype-main</module>
-<!--        <module>code-generator-plugin</module>-->
     </modules>
 
 </project>

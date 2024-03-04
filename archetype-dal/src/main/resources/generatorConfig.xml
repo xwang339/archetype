@@ -35,7 +35,7 @@
             <property name="nullCatalogMeansCurrent" value="true" />
         </jdbcConnection>
 
-<!--        &lt;!&ndash; 实体类、Mapper、XML 文件生成的位置 &ndash;&gt;-->
+        <!-- 实体类、Mapper、XML 文件生成的位置 -->
 <!--        <javaModelGenerator targetPackage="com.lixin.dal.model"-->
 <!--                            targetProject="src/main/java">-->
 <!--            <property name="enableSubPackages" value="true"/>-->

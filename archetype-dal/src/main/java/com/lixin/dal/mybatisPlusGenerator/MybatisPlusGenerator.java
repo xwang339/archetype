@@ -1,4 +1,4 @@
-package com.lixin.dal.generator;
+package com.lixin.dal.mybatisPlusGenerator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
 
-public class CodeGenerator {
+public class MybatisPlusGenerator {
     public static void main(String[] args) {
         // 代码生成器
         AutoGenerator generator = new AutoGenerator();
