@@ -16,6 +16,12 @@
         </plugin>
 
 
+        <!--        逆向插件 可以通过注解反向生成.sql文件-->
+        <plugin type="org.mybatis.mybatisGenerator.plugins.AnnotationCommentsPlugin">
+            <property name="enable" value="true"/>
+        </plugin>
+
+
         <commentGenerator type="org.mybatis.mybatisGenerator.internal.ArchetypeGenerator">
             <!--            是否禁用注释-->
             <property name="suppressAllComments" value="false"/>
