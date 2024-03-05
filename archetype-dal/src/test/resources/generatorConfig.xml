@@ -8,22 +8,22 @@
     <!-- 数据库连接配置 -->
     <context id="context" targetRuntime="MyBatis3">
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
-<!--        <commentGenerator>-->
 
-<!--            &lt;!&ndash; 是否生成注释，默认为true &ndash;&gt;-->
-<!--            <property name="suppressAllComments" value="true"/>-->
-<!--            &lt;!&ndash; 是否去除自动生成的注释，默认为false &ndash;&gt;-->
-<!--            <property name="suppressDate" value="false"/>-->
-<!--            &lt;!&ndash; 是否添加数据库表中的注释，默认为false &ndash;&gt;-->
-<!--            &lt;!&ndash;            <property name="addRemarkComments" value="f"/>&ndash;&gt;-->
-<!--        </commentGenerator>-->
-<!--        -->
-        <commentGenerator  type="com.lixin.dal.mybatisGenerator.internal.ArchetypeGenerator">
+        <plugin type="org.mybatis.mybatisGenerator.plugins.FileCommentsPlugin">
+            <property name="dateFormat" value="yyyy-MM-dd HH:mm:ss"/>
+            <property name="author" value="lixin"/>
+            <property name="enable" value="true"/>
+        </plugin>
+
+
+        <commentGenerator type="org.mybatis.mybatisGenerator.internal.ArchetypeGenerator">
+            <!--            是否禁用注释-->
             <property name="suppressAllComments" value="false"/>
+            <!--            是否禁止生成日期-->
             <property name="suppressDate" value="false"/>
+            <!--            是否添加注释-->
             <property name="addRemarkComments" value="true"/>
             <property name="dateFormat" value="yyyy-MM-dd HH:mm:ss"/>
-<!--            <property name="author" value="Croky.Zheng"/>-->
         </commentGenerator>
 
         <!-- 数据库连接信息 -->
@@ -35,27 +35,12 @@
             <property name="nullCatalogMeansCurrent" value="true"/>
         </jdbcConnection>
 
+        <javaTypeResolver>
+            <!-- true：使用BigDecimal对应DECIMAL和 NUMERIC数据类型 false：默认, scale>0;length>18：使用BigDecimal;
+                scale=0;length[10,18]：使用Long； scale=0;length[5,9]：使用Integer； scale=0;length<5：使用Short； -->
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
 
-        <!-- 实体类、Mapper、XML 文件生成的位置 -->
-        <!--        <javaModelGenerator targetPackage="com.lixin.dal.model"-->
-        <!--                            targetProject="src/main/java">-->
-        <!--            <property name="enableSubPackages" value="true"/>-->
-        <!--        </javaModelGenerator>-->
-
-        <!--        <sqlMapGenerator targetPackage="com.lixin.dal.mapper"-->
-        <!--                         targetProject="src/main/resources">-->
-        <!--            <property name="enableSubPackages" value="true"/>-->
-        <!--        </sqlMapGenerator>-->
-
-        <!--        <javaClientGenerator targetPackage="com.lixin.dal.mapper"-->
-        <!--                             targetProject="src/main/java"-->
-        <!--                             type="XMLMAPPER">-->
-        <!--            <property name="enableSubPackages" value="true"/>-->
-        <!--        </javaClientGenerator>-->
-
-        <!--        <javaTypeResolver >-->
-        <!--            <property name="forceBigDecimals" value="false" />-->
-        <!--        </javaTypeResolver>-->
 
         <!-- 数据表对应的model层  -->
         <!-- targetProject为文件生成的目录  targetPackage 为生成项目结构目录 -->

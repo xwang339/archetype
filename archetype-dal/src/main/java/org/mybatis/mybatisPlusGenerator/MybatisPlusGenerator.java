@@ -1,4 +1,4 @@
-package com.lixin.dal.mybatisPlusGenerator;
+package org.mybatis.mybatisPlusGenerator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;

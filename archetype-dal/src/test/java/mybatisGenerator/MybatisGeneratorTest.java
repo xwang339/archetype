@@ -2,15 +2,10 @@ package mybatisGenerator;
 
 import org.junit.Test;
 import org.mybatis.generator.api.MyBatisGenerator;
-import org.mybatis.generator.api.ProgressCallback;
-import org.mybatis.generator.api.VerboseProgressCallback;
 import org.mybatis.generator.config.Configuration;
 import org.mybatis.generator.config.xml.ConfigurationParser;
 import org.mybatis.generator.exception.InvalidConfigurationException;
 import org.mybatis.generator.internal.DefaultShellCallback;
-import org.mybatis.generator.maven.MavenProgressCallback;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
