@@ -131,6 +131,7 @@ public final class JsonUtils {
 		try {
 			return MAPPER.writeValueAsString(object);
 		} catch (JsonProcessingException e) {
+            e.printStackTrace();
 			return null;
 		}
 	}
