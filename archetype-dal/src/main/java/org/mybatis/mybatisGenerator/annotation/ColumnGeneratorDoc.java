@@ -12,6 +12,10 @@ public @interface ColumnGeneratorDoc {
      */
     String remark() default "";
 
+    boolean isPrimaryKey() default false;
+
+    boolean isAuto() default  false;
+
     /**
      * 字段名称
      * @return
