@@ -27,10 +27,10 @@ public interface  SqlProvider {
      * @param type 数据类型
      * @return
      */
-    default String getValueString(Object value, byte type) {
+    default String getValueString(Object value, int type) {
         if (type == (MysqlColumn.CHAR.getValue()) || type == MysqlColumn.VARCHAR.getValue()) {
             return "'" + value + "'";
-        } else if (type == MysqlColumn.DATETIME.getValue() || type == MysqlColumn.TIMESTAMP.getValue()) {
+        } else if (type == MysqlColumn.TIMESTAMP.getValue()) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             return "'" + dateFormat.format(value) + "'";
         } else {

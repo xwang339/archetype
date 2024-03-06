@@ -32,7 +32,7 @@ public class MysqlTableSchema extends TableSchema {
     private static final String LINE_FEED_HAS_NEXT = ",\n";
     private static final String LINE_FEED = "\n";
     private static final String PARENTHESES_PRE = " ( ";
-    private static final String TIMESTAMP_DEFAULT = " DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ";
+    private static final String TIMESTAMP_DEFAULT = " ON UPDATE CURRENT_TIMESTAMP ";
     private static final String PRIMARY_KEY_STR = "  PRIMARY KEY (`%s`)";
     private static final String MODIFY = "  modify ";
     private static final String COMMENT = "  comment ";
@@ -109,6 +109,9 @@ public class MysqlTableSchema extends TableSchema {
         //获取当前模型的实际类型
         MysqlColumn mysqlColumn = model.getType();
 
+        if (mysqlColumn==null){
+            System.out.println(123);
+        }
         sql.append(mysqlColumn.isHasSuffix() ? String.format(mysqlColumn.getSuffix(), model.getLength()) : mysqlColumn.getSuffix());
 
         sql.append(model.isNull() ? ColumnStatus.ISNULL.getDescription() : ColumnStatus.NOTNULL.getDescription());
@@ -137,7 +140,7 @@ public class MysqlTableSchema extends TableSchema {
         String suffix = mysqlColumn.isHasSuffix() ? String.format(mysqlColumn.getSuffix(), model.getLength()) : mysqlColumn.getSuffix();
         //设置TIMESTAMP的默认值 如果是这个类型需要追加
         suffix = mysqlColumn == MysqlColumn.TIMESTAMP ? suffix + TIMESTAMP_DEFAULT : suffix;
-        return ALTER_TABLE + this.getTableName() + MODIFY + String.format(FORMAT, model.getColumn()) + " " + suffix + " " + COMMENT + " '" + model.getComment() + "'" + ENDING + "";
+        return ALTER_TABLE + this.getTableName() + MODIFY + String.format(FORMAT, model.getColumn()) + " " + suffix + " " + COMMENT + " '" + model.getComment() + "'" + ENDING + "\n";
     }
 
 
@@ -176,7 +179,7 @@ public class MysqlTableSchema extends TableSchema {
     public String getCommentColumnSql() {
         StringBuilder sql = new StringBuilder();
         for (SqlModel model : this.getModels()) {
-            sql.append(builderCommentLine(model)).append("\n");
+            sql.append(builderCommentLine(model));
         }
         return sql.toString();
     }

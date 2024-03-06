@@ -1,9 +1,14 @@
 package org.mybatis.mybatisGenerator.annotation;
 
+import java.lang.annotation.*;
+
 /**
  * 生成代码注解
  * 可以用于逆向生成sql文件
  */
+@Documented
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.FIELD, ElementType.ANNOTATION_TYPE})
 public @interface ColumnGeneratorDoc {
 
     /**
@@ -59,4 +64,6 @@ public @interface ColumnGeneratorDoc {
     int Scale();
 
     boolean Identity();
+
+
 }

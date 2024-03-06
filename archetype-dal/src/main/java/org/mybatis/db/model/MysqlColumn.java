@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Description:
+ * Description: 只做了一些常用的类型
  * Copyright:   Copyright (c)2023
  * Company:     sci
  *
@@ -18,28 +18,34 @@ import java.util.Map;
  * 2023-03-23     张李鑫                     1.0         1.0 Version
  */
 public enum MysqlColumn {
-    TEXT("text(%s)", (byte) 1, true),
-    INTEGER("int(%s)", (byte) 2, true),
-    TIMESTAMP("timestamp", (byte) 3, false),
-    DATETIME("datetime", (byte) 6, false),
-    CHAR("CHAR(%s)", (byte) 5, true),
-    VARCHAR("VARCHAR(%s)", (byte) 4, true);
+
+    TEXT("text",  -1, false),
+    BLOB("blob",  -4, false),
+    INTEGER("int(%s)",  4, true),
+    TIMESTAMP("timestamp",  93, false),
+    // 从目前看到的状况来看 mybatis 这个版本不支持datetime 默认会把datetime编程timestamp
+//    DATETIME("datetime", 6, false),
+    CHAR("CHAR(%s)",  1, true),
+    TINYINT("tinyint",  -6, false),
+    BIT("tinyint(%s)",  -7, true),
+    BIGINT("bigint",  -5, false),
+    VARCHAR("VARCHAR(%s)",  12, true);
 
 
     private final String suffix;
-    private final byte value;
+    private final int value;
     private final boolean hasSuffix;
 
-    public static final Map<Byte, MysqlColumn> enumMap = toMap();
+    public static final Map<Integer, MysqlColumn> enumMap = toMap();
 
-    private MysqlColumn(String suffix, byte value, boolean hasSuffix) {
+    private MysqlColumn(String suffix, int value, boolean hasSuffix) {
         this.suffix = suffix;
         this.value = value;
         this.hasSuffix = hasSuffix;
     }
 
-    private static Map<Byte, MysqlColumn> toMap() {
-        Map<Byte, MysqlColumn> statusMap = new LinkedHashMap<Byte, MysqlColumn>();
+    private static Map<Integer, MysqlColumn> toMap() {
+        Map<Integer, MysqlColumn> statusMap = new LinkedHashMap<Integer, MysqlColumn>();
         for (MysqlColumn tmp : MysqlColumn.values()) {
             statusMap.put(tmp.value, tmp);
         }
@@ -50,7 +56,7 @@ public enum MysqlColumn {
         return suffix;
     }
 
-    public byte getValue() {
+    public int getValue() {
         return value;
     }
 

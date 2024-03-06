@@ -51,7 +51,7 @@ public class SqlModel {
     public SqlModel() {
     }
 
-    public SqlModel(String column, String comment, Byte type, Integer length, boolean isNull, boolean isPrimaryKey, boolean isAuto) {
+    public SqlModel(String column, String comment, int type, Integer length, boolean isNull, boolean isPrimaryKey, boolean isAuto) {
         this.column = column;
         this.comment = comment;
         setType(type);
@@ -81,7 +81,7 @@ public class SqlModel {
         return type;
     }
 
-    public void setType(Byte type) {
+    public void setType(int type) {
         this.type = MysqlColumn.enumMap.get(type);
     }
 

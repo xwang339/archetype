@@ -39,10 +39,5 @@ public class MybatisGeneratorTest {
     }
 
 
-    @Test(expected = InvalidConfigurationException.class)
-    public void createTable() {
-
-    }
-
 
 }
