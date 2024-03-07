@@ -26,8 +26,6 @@ import java.util.stream.Collectors;
  */
 public class MysqlTableSchema extends TableSchema {
 
-
-
     private static final String FORMAT = " `%s`";
     private static final String LINE_FEED_HAS_NEXT = ",\n";
     private static final String LINE_FEED = "\n";
@@ -40,7 +38,6 @@ public class MysqlTableSchema extends TableSchema {
     private static final String ALTER_TABLE = " alter table ";
     private static final String CREATE_TABLE = " create table ";
     private static final String AUTO_INCREMENT = " AUTO_INCREMENT ";
-    private static final String EMPTY_STRING = "";
 
 
     /**
@@ -109,9 +106,6 @@ public class MysqlTableSchema extends TableSchema {
         //获取当前模型的实际类型
         MysqlColumn mysqlColumn = model.getType();
 
-        if (mysqlColumn==null){
-            System.out.println(123);
-        }
         sql.append(mysqlColumn.isHasSuffix() ? String.format(mysqlColumn.getSuffix(), model.getLength()) : mysqlColumn.getSuffix());
 
         sql.append(model.isNull() ? ColumnStatus.ISNULL.getDescription() : ColumnStatus.NOTNULL.getDescription());
@@ -138,7 +132,7 @@ public class MysqlTableSchema extends TableSchema {
         MysqlColumn mysqlColumn = MysqlColumn.enumMap.get(model.getType().getValue());
         //是否有后缀 (?) :有的话需要替换长度 部分字段不需要设置长度
         String suffix = mysqlColumn.isHasSuffix() ? String.format(mysqlColumn.getSuffix(), model.getLength()) : mysqlColumn.getSuffix();
-        //设置TIMESTAMP的默认值 如果是这个类型需要追加
+        //设置TIMESTAMP的默认值 todo:这里设置的是按照时间戳更新 但是好像 不是每个场景都需要这样的 后续研究一下
         suffix = mysqlColumn == MysqlColumn.TIMESTAMP ? suffix + TIMESTAMP_DEFAULT : suffix;
         return ALTER_TABLE + this.getTableName() + MODIFY + String.format(FORMAT, model.getColumn()) + " " + suffix + " " + COMMENT + " '" + model.getComment() + "'" + ENDING + "\n";
     }

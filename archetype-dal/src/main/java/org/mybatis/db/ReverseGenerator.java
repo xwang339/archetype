@@ -16,7 +16,6 @@ import org.mybatis.mybatisGenerator.annotation.ColumnGeneratorDoc;
 import org.mybatis.mybatisGenerator.annotation.TableGeneratorDoc;
 
 import java.io.File;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
